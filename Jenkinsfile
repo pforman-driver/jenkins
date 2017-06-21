@@ -1,7 +1,10 @@
 pipeline {
   agent any
+  triggers {
+    pollSCM('H/5 * * * *')
+  }
   parameters {
-    booleanParam(defaultValue: true, description: '', name: 'userFlag')
+    booleanParam(description: 'stuff', name: 'userFlag')
   }
 
   stages {
