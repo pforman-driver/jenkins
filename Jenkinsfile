@@ -11,12 +11,9 @@ pipeline {
         echo 'Testing..'
       }
     }
-    stage('Deploy') {
+    stage('Deploy Check') {
       steps {
-        waitUntil() {
-          input(message: 'Should we do this?', id: 'derp', ok: 'yes')
-        }
-        
+        input(message: 'Should we do this?', id: 'check', ok: 'YES!')
       }
     }
     stage('Deploy2') {
