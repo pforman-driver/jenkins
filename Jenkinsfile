@@ -13,7 +13,15 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        echo 'Deploying....'
+        waitUntil() {
+          input(message: 'Should we do this?', id: 'derp', ok: 'yes')
+        }
+        
+      }
+    }
+    stage('Deploy2') {
+      steps {
+        echo 'Yeah buddy!'
       }
     }
   }
